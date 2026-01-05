@@ -1,0 +1,19 @@
+Package: uk.calvink19.percept
+Version: 1.0.0
+Architecture: iphoneos-arm
+Maintainer: calvink19
+Depends: mobilesubstrate, me.k3a.ae, preferenceloader
+Filename: ./debs/uk.calvink19.percept_1.0.0_iphoneos-arm.deb
+Size: 8496
+MD5sum: fe937d31dad10f5a06ff1606adc3617e
+SHA1: c7f69535e8fe2a0cb7135537cbe1ac2a64baf030
+SHA256: 408c22b44a46206b2c4f4ae0541116eb0599eb91aa0ef49894b39c8edca103ba
+Section: Addons (AssistantExtensions)
+Description: Makes Siri just a little bit smarter.
+Author: calvink19
+Depiction: https://calvink19.co/services/ss
+Installed-Size: 252
+Name: Percept
+
+
+
