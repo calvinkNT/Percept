@@ -1,0 +1,10 @@
+Package: uk.calvink19.percept
+Name: Percept
+Depends: mobilesubstrate, me.k3a.ae, preferenceloader
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Makes Siri just a little bit smarter.
+Depiction: https://calvink19.co/services/ss
+Maintainer: calvink19
+Author: calvink19
+Section: Addons (AssistantExtensions)
