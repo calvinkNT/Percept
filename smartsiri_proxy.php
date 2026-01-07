@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, X-API-Key');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $apiKey = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : '';
 
 if (empty($apiKey)) {
-    http_response_code(401);
     echo json_encode(['error' => 'API key required']);
     exit;
 }
@@ -26,19 +25,11 @@ $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, true);
 
 if (!is_array($input)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Invalid JSON']);
     exit;
 }
 
 if (isset($input['model'])) {
-    $legacyModels = [
-        'gpt-3.5-turbo',
-        'gpt-3.5-turbo-0301',
-        'gpt-3.5-turbo-0613'
-    ];
-
-    if (in_array($input['model'], $legacyModels, true)) {
+    if (in_array($input['model'], "gpt-3.5-turbo", true)) {
         $input['model'] = 'gpt-4o-mini';
     }
 }
@@ -49,7 +40,6 @@ $input['max_tokens'] = min(
 );
 
 $inputJSON = json_encode($input);
-
 
 $ch = curl_init('https://api.openai.com/v1/chat/completions');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
